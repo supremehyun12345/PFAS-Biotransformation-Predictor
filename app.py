@@ -97,7 +97,7 @@ st.set_page_config(
 st.title("PFAS Biotransformation Predictor")
 st.caption(
     "Predicts the probability that PFAS biotransformation will be observed "
-    "under user-specified environmental conditions."
+    "under user-specified environmental conditions. -H.Yoon"
 )
 
 st.markdown(
