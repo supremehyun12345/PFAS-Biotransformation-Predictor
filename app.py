@@ -184,7 +184,7 @@ with col2:
         [
             "Liquid spike",
             "Pre-sorbed to solids",
-            "Other",
+            "Intermediates",
         ],
         index=0,
     )
