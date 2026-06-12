@@ -98,7 +98,7 @@ st.title("PFAS Biotransformation Predictor (Yoon model v1.0)")
 st.caption(
     "Predicts the probability that PFAS biotransformation will be observed "
     "under user-specified environmental conditions."
-    "Questions can be made to h_yoon@berkeley.edu"
+    " Questions can be made to h_yoon@berkeley.edu"
 )
 
 st.markdown(
