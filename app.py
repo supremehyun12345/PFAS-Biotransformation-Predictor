@@ -248,5 +248,5 @@ if st.button("Predict biotransformation probability", type="primary"):
 st.divider()
 st.caption(
     "Model output depends on the training dataset, descriptor definitions, and "
-    "category labels used during model development."
+    "category labels used during model development. Questions can be made to h_yoon@berkeley.edu"
 )
