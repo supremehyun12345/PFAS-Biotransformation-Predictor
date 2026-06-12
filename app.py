@@ -98,6 +98,7 @@ st.title("PFAS Biotransformation Predictor (Yoon model v1.0)")
 st.caption(
     "Predicts the probability that PFAS biotransformation will be observed "
     "under user-specified environmental conditions."
+    "Questions can be made to h_yoon@berkeley.edu"
 )
 
 st.markdown(
@@ -248,5 +249,5 @@ if st.button("Predict biotransformation probability", type="primary"):
 st.divider()
 st.caption(
     "Model output depends on the training dataset, descriptor definitions, and "
-    "category labels used during model development. Questions can be made to h_yoon@berkeley.edu"
+    "category labels used during model development."
 )
