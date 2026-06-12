@@ -112,7 +112,7 @@ st.markdown(
 st.divider()
 
 smiles = st.text_area(
-    "SMILES",
+    "SMILES (e.g., 6:2FTOH: FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)CCO",
     value="FC(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)CCO",
     help="Enter a valid SMILES string. RDKit descriptors will be calculated automatically.",
 )
