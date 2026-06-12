@@ -94,7 +94,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("PFAS Biotransformation Predictor (Yoon model)")
+st.title("PFAS Biotransformation Predictor (Yoon model v1.0)")
 st.caption(
     "Predicts the probability that PFAS biotransformation will be observed "
     "under user-specified environmental conditions."
