@@ -135,7 +135,7 @@ with col1:
             "Sulfonamidoacetate precursor",
             "Sulfonamidoamine precursor",
             "Sulfonamidoethanol precursor",
-            "Other / baseline",
+            "Other",
         ],
         index=2,
     )
@@ -145,7 +145,7 @@ with col1:
         [
             "Neutral",
             "Zwitterionic/cationic",
-            "Anionic / other baseline",
+            "Anionic",
         ],
         index=0,
     )
@@ -154,7 +154,7 @@ with col1:
         "Ionizable?",
         [
             "Yes",
-            "No / baseline",
+            "No",
         ],
         index=1,
     )
@@ -165,7 +165,7 @@ with col2:
         [
             "Soil/sediment",
             "No added solids",
-            "Activated sludge / other baseline",
+            "Activated sludge",
         ],
         index=0,
     )
@@ -174,7 +174,7 @@ with col2:
         "Redox condition",
         [
             "Anaerobic",
-            "Aerobic / baseline",
+            "Aerobic",
         ],
         index=1,
     )
@@ -184,7 +184,7 @@ with col2:
         [
             "Liquid spike",
             "Pre-sorbed to solids",
-            "Other / baseline",
+            "Other",
         ],
         index=0,
     )
