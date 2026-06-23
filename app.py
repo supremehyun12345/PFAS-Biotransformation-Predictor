@@ -135,12 +135,12 @@ with col1:
             "Sulfonamidoacetate precursor",
             "Sulfonamidoamine precursor",
             "Sulfonamidoethanol precursor",
-            "other",
+            "Other",
         ],
         index=2,
     )
 
-    headgroup_type = st.selectbox(
+    charge_category = st.selectbox(
         "Charge category",
         [
             "Neutral",
