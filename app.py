@@ -137,7 +137,7 @@ with col1:
             "Sulfonamidoethanol precursor",
             "Other",
         ],
-        index=2,
+        index=3,
     )
 
     charge_category = st.selectbox(
