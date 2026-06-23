@@ -192,7 +192,7 @@ perfluoro_carbon = st.number_input(
     "Perfluoro carbon",
     min_value=0,
     max_value=100,
-    value=8,
+    value=6,
     step=1,
 )
 
