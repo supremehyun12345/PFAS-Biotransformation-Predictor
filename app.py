@@ -45,12 +45,12 @@ def rdkit_features_from_smiles(smiles: str) -> dict:
 def build_model_row(
     smiles: str,
     pfas_subclass: str,
-    headgroup_type: str,
+    charge_category: str,
     ionizable: str,
     matrix_type: str,
     redox_broad: str,
     exposure_mode: str,
-    incubation_days: float,
+    perfluoro_carbon: float,
     s_to_l_ratio: float,
 ) -> pd.DataFrame:
     row = {col: 0 for col in FEATURE_COLUMNS}
@@ -62,15 +62,15 @@ def build_model_row(
             row[k] = v
 
     # Numeric environmental descriptors
-    if "Incubation_Time_days" in row:
-        row["Incubation_Time_days"] = incubation_days
     if "S_to_L_Ratio_percent" in row:
         row["S_to_L_Ratio_percent"] = s_to_l_ratio
+    if "Perfluoro_Carbon" in row:
+        row["Perfluoro_Carbon"] = perfluoro_carbon
 
     # One-hot categorical descriptors
     categorical_values = {
         "PFAS_Subclass": pfas_subclass,
-        "Headgroup_Type": headgroup_type,
+        "Charge_Category": charge_category,
         "Ionizable": ionizable,
         "Matrix_Type": matrix_type,
         "Redox_Broad": redox_broad,
@@ -94,7 +94,7 @@ st.set_page_config(
     layout="centered",
 )
 
-st.title("PFAS Biotransformation Predictor (Yoon model v1.0)")
+st.title("PFAS Biotransformation Predictor (Yoon model v1.1)")
 st.caption(
     "Predicts the probability that PFAS biotransformation will be observed "
     "under user-specified environmental conditions."
@@ -123,25 +123,25 @@ with col1:
     pfas_subclass = st.selectbox(
         "PFAS subclass",
         [
+            "Amidoamine/Amidoammonium",
+            "Cl-PFAS",
             "Ether PFAS",
-            "Fluorotelomer precursor",
             "Ft alcohol",
             "Ft carboxylate",
             "Ft specialty precursor",
             "Ft sulfonate",
             "PAP precursor",
-            "PFCA",
             "Sulfonamide precursor",
             "Sulfonamidoacetate precursor",
             "Sulfonamidoamine precursor",
             "Sulfonamidoethanol precursor",
-            "Other",
+            "other",
         ],
         index=2,
     )
 
     headgroup_type = st.selectbox(
-        "Headgroup type",
+        "Charge category",
         [
             "Neutral",
             "Zwitterionic/cationic",
@@ -182,19 +182,18 @@ with col2:
     exposure_mode = st.selectbox(
         "Exposure mode",
         [
-            "Liquid spike",
-            "Pre-sorbed to solids",
-            "Intermediates",
+            "Liquid-spiked",
+            "Presorbed"
         ],
         index=0,
     )
 
-incubation_days = st.number_input(
-    "Incubation time (days)",
+perfluoro_carbon = st.number_input(
+    "Perfluoro carbon",
     min_value=0.0,
-    max_value=5000.0,
-    value=90.0,
-    step=1.0,
+    max_value=100,
+    value=8,
+    step=1,
 )
 
 s_to_l_ratio = st.number_input(
@@ -212,12 +211,12 @@ if st.button("Predict biotransformation probability", type="primary"):
         X_new = build_model_row(
             smiles=smiles,
             pfas_subclass=pfas_subclass,
-            headgroup_type=headgroup_type,
+            charge_category=charge_category,
             ionizable=ionizable,
             matrix_type=matrix_type,
             redox_broad=redox_broad,
             exposure_mode=exposure_mode,
-            incubation_days=incubation_days,
+            perfluoro_carbon=perfluoro_carbon,
             s_to_l_ratio=s_to_l_ratio,
         )
 
